@@ -1,6 +1,6 @@
 <template>
     <button v-if="$slots.default"
-            :class="['li-btn',{'li-btn--is-disable':disabled},'li-btn--'+type]"
+            :class="['terse-btn',{'terse-btn--is-disable':disabled},'terse-btn--'+type]"
             :disabled="disabled"
             @click="handleClick">
         <i :class="['iconfont',icon]" v-if="icon&&!loading"></i>
@@ -51,7 +51,7 @@
         }
     }
 
-    .li-btn {
+    .terse-btn {
         line-height: 32px;
         font-size: 16px;
         display: inline-flex;
