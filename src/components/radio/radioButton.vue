@@ -48,9 +48,6 @@
           } else {
             this.$emit('input', value)
           }
-          this.$nextTick(() => {
-            this.$refs.radio.checked = this.model === this.label
-          })
         }
 
       },
@@ -67,9 +64,7 @@
         return false
       }
     },
-    mounted() {
-      this.$refs.radio && (this.$refs.radio.checked = this.model === this.label)
-    }
+
   }
 </script>
 

@@ -8,7 +8,7 @@
                class="terse-switch__input"
                :name="name" ref="input"
                :true-value="activeValue"
-               :false-value="inactiveValue"/>
+               :false-value="inactiveValue" v-model="model"/>
     </div>
 </template>
 <script>
@@ -55,6 +55,11 @@
         type: String
       }
     },
+    data() {
+      return {
+        model: null
+      }
+    },
     methods: {
       switchValue() {
         !this.disabled && this.handleChange()
@@ -64,7 +69,6 @@
         this.$emit('input', value)
         this.$emit('change', value)
         this.$nextTick(() => {
-          this.$refs.input.checked = this.checked
           this.setColor()
           this.setTextActive()
         })
@@ -91,7 +95,6 @@
       }
     },
     mounted() {
-      this.$refs.input.checked = this.checked
       this.setColor()
       this.setTextActive()
     }

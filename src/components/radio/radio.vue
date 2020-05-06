@@ -45,13 +45,10 @@
         set(value) {
           if (this.isGroup) {
             this._radioGroup.$emit('input', value)
+            this._radioGroup.$emit('change', value)
           } else {
             this.$emit('input', value)
           }
-          this.$nextTick(() => {
-            this.$refs.radio && (this.$refs.radio.checked = this.model === this.label)
-          })
-
         }
       },
       isGroup() {
@@ -71,9 +68,6 @@
       return {
         notAllowed: this.disabled
       }
-    },
-    mounted() {
-      this.$refs.radio.checked = this.model === this.label
     },
   }
 </script>

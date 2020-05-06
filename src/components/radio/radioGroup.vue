@@ -18,11 +18,6 @@
         default: false
       }
     },
-    methods: {
-      handleChange(value) {
-        this.$emit('change', value)
-      }
-    },
     mounted() {
       if (this.disabled) {
         this.$slots.default && this.$slots.default.forEach(vNode => {
@@ -32,11 +27,7 @@
           }
         })
       }
-      this.$on('input', this.handleChange)
     },
-    beforeDestroy() {
-      this.$off('input', this.handleChange)
-    }
   }
 </script>
 
