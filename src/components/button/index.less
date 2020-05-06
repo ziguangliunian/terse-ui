@@ -1,0 +1,12 @@
+.btn-status-change(@type,@initColor,@hoverColor) {
+  .li-btn--@{type} {
+    background: @initColor;
+    color: #fff;
+    border-color: @initColor;
+
+    &:hover {
+      border-color: @hoverColor;
+      background: @hoverColor;
+    }
+  }
+}
