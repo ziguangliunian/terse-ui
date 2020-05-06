@@ -1,5 +1,5 @@
 <template>
-    <div class="li-button-group">
+    <div class="terse-button-group">
         <slot></slot>
     </div>
 </template>
@@ -11,11 +11,11 @@
 </script>
 
 <style scoped lang="less">
-    .li-button-group {
+    .terse-button-group {
         display: inline-flex;
         vertical-align: middle;
 
-        .li-btn {
+        .terse-btn {
             border-radius: 0;
 
             &:not(:first-child) {
