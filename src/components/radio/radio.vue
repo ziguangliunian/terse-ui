@@ -76,10 +76,9 @@
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        line-height: 1;
         margin-right: 30px;
         -user-select: none;
-
+        vertical-align:top;
         .terse-radio__inner {
             display: inline-block;
             box-sizing: border-box;

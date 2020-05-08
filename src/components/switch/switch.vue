@@ -8,7 +8,8 @@
                class="terse-switch__input"
                :name="name" ref="input"
                :true-value="activeValue"
-               :false-value="inactiveValue" v-model="model"/>
+               :false-value="inactiveValue"
+        />
     </div>
 </template>
 <script>
@@ -53,11 +54,6 @@
       },
       inactiveText: {
         type: String
-      }
-    },
-    data() {
-      return {
-        model: null
       }
     },
     methods: {

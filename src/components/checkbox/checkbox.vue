@@ -22,7 +22,8 @@
     name: "terse-checkbox",
     props: {
       value: {
-        type: Boolean
+        type: Boolean,
+        default:false
       },
       disabled: {
         type: Boolean,
@@ -78,18 +79,16 @@
       return {
         notAllowed: this.disabled
       }
-    },
-
+    }
   }
 </script>
 
 <style scoped lang="less">
     .terse-checkbox {
         display: inline-flex;
-        line-height: 1;
         align-items: center;
         cursor: pointer;
-
+        vertical-align: top;
         .terse-checkbox__inner {
             position: relative;
             width: 14px;
