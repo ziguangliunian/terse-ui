@@ -41,7 +41,7 @@
 </script>
 
 <style scoped lang="less">
-    @import "./src/assets/variable";
+    @import "../assets/variable";
 
     .terse-link {
         cursor: pointer;

@@ -15,7 +15,7 @@
         type: String
       },
       name: {
-        equird: true,
+        requird: true,
         type: String
       },
       disabled: {

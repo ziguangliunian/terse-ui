@@ -61,7 +61,7 @@
 </script>
 
 <style lang="less" scoped>
-    @import "./src/assets/variable";
+    @import "../assets/variable";
 
     .tag-fade-enter, .tag-fade-leave-to {
         opacity: 0;

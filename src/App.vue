@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-
+      <terse-button>点击</terse-button>
     </div>
 </template>
 

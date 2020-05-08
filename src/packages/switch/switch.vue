@@ -97,7 +97,7 @@
   }
 </script>
 <style lang="less" scoped>
-    @import "./src/assets/variable.less";
+    @import "../assets/variable.less";
 
     .terse-switch {
         display: inline-flex;
