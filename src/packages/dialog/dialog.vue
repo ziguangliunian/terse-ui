@@ -12,7 +12,7 @@
                 <p class="content__title" v-if="title&&!$slots.title">
                     {{title}}
                 </p>
-                <p v-else class="content__title">
+                <p v-if="$slots.title" class="content__title">
                     <slot name="title"></slot>
                 </p>
                 <div class="content__body">
