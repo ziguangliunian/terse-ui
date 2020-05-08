@@ -50,7 +50,7 @@ Message.close = function (id, close) {
 }
 Message.closeAll = function () {
   for (let i = instances.length - 1; i >= 0; i--) {
-    instances[i].onClose()
+    instances[i].close()
   }
 }
 ;['info', 'success', 'danger', 'warning'].forEach(type => {
