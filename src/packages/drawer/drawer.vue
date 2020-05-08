@@ -8,11 +8,11 @@
                  @click="closeDrawer"/>
             <div class="terse-drawer__content"
                  :style="contentStyle">
-                <p v-if="title&&!$slots.default"
+                <p v-if="title&&!$slots.title"
                    class="content__title">
                     {{title}}
                 </p>
-                <p class="content__title" v-else>
+                <p class="content__title" v-if="$slots.title">
                     <slot name="title"></slot>
                 </p>
                 <div class="content__body">
