@@ -46,7 +46,8 @@
     methods: {
       start() {
         if (this.duration) {
-          setTimeout(this.close, this.timer)
+          console.log(222);
+          setTimeout(this.close, this.duration)
         }
       },
       close() {
@@ -99,6 +100,7 @@
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
         transition: opacity .3s, transform .3s, top .3s, bottom 0.3s;
         position: fixed;
+        z-index: 200;
 
         .terse-notification__title {
             margin: 0;
@@ -116,7 +118,7 @@
                 }
 
                 &--danger {
-                    color: @theme-color-success;
+                    color: @theme-color-danger;
                 }
 
                 &--warning {

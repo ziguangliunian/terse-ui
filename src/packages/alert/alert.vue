@@ -7,8 +7,8 @@
             <p v-if="$slots.title" class="terse-alert__title">
                 <slot name="title"></slot>
             </p>
-            <p v-if="descriptions&&!$slots.default" class="terse-alert__description">
-                {{descriptions}}
+            <p v-if="description&&!$slots.default" class="terse-alert__description">
+                {{description}}
             </p>
             <p v-if="$slots.default" class="terse-alert__description">
                 <slot></slot>
@@ -36,7 +36,7 @@
         type: Boolean,
         default: true
       },
-      descriptions: {
+      description: {
         type: String
       },
       type: {

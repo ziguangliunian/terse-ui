@@ -10,7 +10,7 @@
     computed: {
       isVertical() {
         return this.$slots && this.$slots.default ? this.$slots.default.some(vNode => {
-          const tag = vNode.componentOptions.tag
+          const tag = vNode.componentOptions&&vNode.componentOptions.tag
           return tag === 'terse-header' || tag === 'terse-footer'
         }) : false
       }

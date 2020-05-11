@@ -1,14 +1,15 @@
 <template>
-    <div class="terse-switch" :class="{'is-checked':checked,'is-disabled':disabled}"
+    <div class="terse-switch" :class="{'is-checked':value,'is-disabled':disabled}"
          @click.prevent="switchValue">
-        <span class="el-switch__label" v-if="activeText" ref="left">{{activeText}}</span>
-        <span class="terse-switch__core" ref="core" :style="{width:width+'px'}"></span>
-        <span class="el-switch__label el-switch__label--right" ref="right" v-if="inactiveText">{{inactiveText}}</span>
+        <span class="terse-switch__label" v-if="inactiveText" ref="left">{{inactiveText}}</span>
+        <span class="terse-switch__core" ref="core" :style="{width:width+'px'}">
+        </span>
+        <span class="terse-switch__label terse-switch__label--right" ref="right" v-if="activeText">{{activeText}}</span>
         <input type="checkbox"
                class="terse-switch__input"
                :name="name" ref="input"
-               :true-value="activeValue"
-               :false-value="inactiveValue"
+               :value="value"
+               :disabled="disabled"
         />
     </div>
 </template>
@@ -18,7 +19,7 @@
     props: {
       value: {
         required: true,
-        type: [Boolean, Number, String],
+        type: Boolean,
 
       },
       disabled: {
@@ -41,14 +42,6 @@
         type: String,
         default: '#C0CCDA'
       },
-      activeValue: {
-        type: [Number, Boolean, String],
-        default: true
-      },
-      inactiveValue: {
-        type: [Number, Boolean, String],
-        default: false
-      },
       activeText: {
         type: String,
       },
@@ -61,7 +54,7 @@
         !this.disabled && this.handleChange()
       },
       handleChange() {
-        const value = this.checked ? this.inactiveValue : this.activeValue
+        const value = this.value ? false : true
         this.$emit('input', value)
         this.$emit('change', value)
         this.$nextTick(() => {
@@ -70,24 +63,19 @@
         })
       },
       setColor() {
-        const color = this.checked ? this.activeColor : this.inactiveColor
+        const color = this.value ? this.activeColor : this.inactiveColor
         this.$refs.core.style.backgroundColor = color
         this.$refs.core.style.borderColor = color
       },
       setTextActive() {
-        if (this.checked && this.activeText) {
-          this.$refs.left.style.color = this.activeColor
-          this.$refs.right.style.color = '#000'
-          return
-        } else if (!this.checked && this.inactiveText) {
-          this.$refs.left.style.color = '#000'
+        if (this.value && this.activeText) {
           this.$refs.right.style.color = this.activeColor
+          this.$refs.left.style.color = '#000'
+          return
+        } else if (!this.value && this.inactiveText) {
+          this.$refs.right.style.color = '#000'
+          this.$refs.left.style.color = this.inactiveColor
         }
-      }
-    },
-    computed: {
-      checked() {
-        return this.value === this.activeValue
       }
     },
     mounted() {
@@ -109,7 +97,7 @@
         vertical-align: middle;
         cursor: pointer;
 
-        .el-switch__label {
+        .terse-switch__label {
             padding-right: 10px;
 
             &--right {
@@ -150,6 +138,7 @@
             top: 0;
             width: 0;
             height: 0;
+            opacity: 0;
         }
 
         &.is-checked {

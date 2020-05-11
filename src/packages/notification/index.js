@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import notification from "./notification";
+import notification from "./notification.vue";
 
 const notificationConstructor = Vue.extend(notification)
 let instance

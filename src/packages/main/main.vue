@@ -6,12 +6,12 @@
 
 <script>
   export default {
-    name: "li-main"
+    name: "terse-main"
   }
 </script>
 
 <style scoped lang="less">
-    .li-main {
+    .terse-main {
         background-color: #e9eef3;
         color: #333;
         text-align: center;

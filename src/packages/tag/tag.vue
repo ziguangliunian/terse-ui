@@ -6,7 +6,7 @@
        <span class="terse-tag__label">
            <slot></slot>
        </span>
-        <i class="iconfont icon-cross" v-if="closed" @click="close"></i>
+        <i class="iconfont icon-cross" v-if="showClose" @click="close"></i>
     </span>
     </transition>
 </template>
@@ -22,7 +22,7 @@
           return ['primary', 'danger', 'success', 'warning', 'info'].includes(value)
         }
       },
-      closed: {
+      showClose: {
         type: Boolean,
         default: false
       },
@@ -52,7 +52,7 @@
         this.closeAble = true
       },
       afterLeave() {
-        this.$emit('close')
+        this.$emit('closed')
         this.$destroy()
         this.$el.parentNode.removeChild(this.$el)
       }

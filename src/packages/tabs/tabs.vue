@@ -25,8 +25,8 @@
       init() {
         const arr = []
         this.$slots && this.$slots.default && this.$slots.default.forEach(vNode => {
-          const options = vNode.componentOptions
-          if (options.tag === 'terse-tab-pane') {
+          const tag = vNode.componentOptions && vNode.componentOptions.tag
+          if (tag === 'terse-tab-pane') {
             const {name, label, disabled} = vNode.child
             arr.push({name, label, disabled})
             if (name === this.value) {
@@ -150,7 +150,8 @@
 
         .line {
             border-top: 2px solid #409eff;
-            position: absolute;
+            position: fixed;
+            z-index: 100;
             transition: left .3s cubic-bezier(1, -0.66, 0, 1.27),
             width .3s cubic-bezier(1, -0.66, 0, 1.27),
             height .3s cubic-bezier(1, -0.66, 0, 1.27);

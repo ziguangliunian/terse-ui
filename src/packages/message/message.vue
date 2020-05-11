@@ -92,6 +92,7 @@
         border: 1px solid #EBEEF5;
         background-color: #edf2fc;
         transition: opacity .5s, top .3s;
+        z-index: 200;
 
         .content {
             margin: 0;
