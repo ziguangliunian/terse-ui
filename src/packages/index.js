@@ -6,6 +6,7 @@ import breadcrumb from "./breadcrumb/breadcrumb";
 import breadcrumbItem from "./breadcrumb/breadcrumbItem";
 import button from "./button/button";
 import buttonGroup from "./buttonGroup/buttonGroup";
+import col from "./col/col";
 import card from "./card/card";
 import checkbox from "./checkbox/checkbox";
 import checkboxGroup from "./checkbox/checkboxGroup";
@@ -19,6 +20,7 @@ import header from "./header/header";
 import icon from "./icon/icon";
 import link from "./link/link";
 import main from "./main/main";
+import row from "./row/row";
 import radio from "./radio/radio";
 import radioButton from "./radio/radioButton";
 import radioGroup from "./radio/radioGroup";
@@ -31,7 +33,7 @@ import Notification from "./notification";
 const components = [
   alert, aside, badge, breadcrumb, breadcrumbItem, buttonGroup, button, card, checkbox, checkboxGroup, container,
   datePicker, dialog, divider, drawer, footer, header, icon, link, main,
-  radio, radioButton, radioGroup, Switch, tag, tabs, tabPane
+  radio, radioButton, radioGroup, Switch, tag, tabs, tabPane,col,row
 ]
 const install = (Vue) => {
   components.forEach(com => {

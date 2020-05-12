@@ -40,16 +40,19 @@
         const spans = this.$refs.titleWrapper.querySelectorAll('span')
         const index = this.tabList.findIndex(item => item.name === this.value)
         if (index !== -1) {
-          const {left, width, bottom, height, top} = spans[index].getBoundingClientRect();
           const line = this.$refs.line
+          const offsetLeft = spans[index].offsetLeft
+          const offsetWidth = spans[index].offsetWidth
+          const offsetTop = spans[index].offsetTop
+          const offsetHeight = spans[index].offsetHeight
           if (this.direction === 'vertical') {
-            line.style.left = left + 'px'
-            line.style.width = width + 'px'
-            line.style.top = bottom + 'px'
+            line.style.left = offsetLeft + 'px'
+            line.style.width = offsetWidth + 'px'
+            line.style.top = offsetTop + offsetHeight + 'px'
           } else if (this.direction === 'horizontal') {
-            line.style.left = left + width + 'px'
-            line.style.top = top + 'px'
-            line.style.height = height + 'px'
+            line.style.left = offsetLeft + offsetWidth + 'px'
+            line.style.top = offsetTop + 'px'
+            line.style.height = offsetHeight + 'px'
           }
         }
       },
@@ -125,6 +128,7 @@
 <style scoped lang="less">
     .terse-tabs {
         display: flex;
+        position: relative;
 
         .title-wrapper {
             .title {
@@ -150,7 +154,7 @@
 
         .line {
             border-top: 2px solid #409eff;
-            position: fixed;
+            position: absolute;
             z-index: 100;
             transition: left .3s cubic-bezier(1, -0.66, 0, 1.27),
             width .3s cubic-bezier(1, -0.66, 0, 1.27),
