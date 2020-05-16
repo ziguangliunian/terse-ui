@@ -2,7 +2,7 @@
     <transition name="message-fade" appear @after-leave="afterLeave">
         <div class="terse-message"
              :class="['terse-message--'+type]"
-             v-show="isVisiable"
+             v-if="isVisiable"
              :style="{top:verticalOffset+'px'}">
             <i class="iconfont icon-warn-line"></i>
             <p class="content">{{message}}</p>

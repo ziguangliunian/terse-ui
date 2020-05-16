@@ -1,13 +1,24 @@
 <template>
-    <div id="app"></div>
+    <terse-row>
+        <terse-col :span="24">
+            <div class="wrapper bg-dark"></div>
+        </terse-col>
+    </terse-row>
 </template>
+
 <script>
   export default {
-    name: 'app',
-
+    data() {
+      return {
+        active: '1'
+      }
+    },
   }
 </script>
 
-<style>
-
+<style scoped>
+.bg-dark{
+    height: 100px;
+    background: salmon;
+}
 </style>

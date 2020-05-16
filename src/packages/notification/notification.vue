@@ -2,7 +2,7 @@
     <transition name="notification-fade" appear @after-leave="afterLeave">
         <div class="terse-notification"
              :class="['terse-notification--'+horizontal]"
-             v-show="visiable"
+             v-if="visiable"
              :style="{[vertical]:verticalOffset+'px',[horizontal]:0}">
             <p v-if="title" class="terse-notification__title">
                 <i class="iconfont icon-warn-line"
@@ -46,7 +46,6 @@
     methods: {
       start() {
         if (this.duration) {
-          console.log(222);
           setTimeout(this.close, this.duration)
         }
       },
@@ -101,6 +100,7 @@
         transition: opacity .3s, transform .3s, top .3s, bottom 0.3s;
         position: fixed;
         z-index: 200;
+        background: #fff;
 
         .terse-notification__title {
             margin: 0;

@@ -45,6 +45,7 @@
         set(value) {
           if (this.isGroup) {
             this._radioGroup.$emit('input', value)
+            this._radioGroup.$emit('change', value)
           } else {
             this.$emit('input', value)
           }

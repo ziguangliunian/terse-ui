@@ -21,7 +21,7 @@
     mounted() {
       if (this.disabled) {
         this.$slots.default && this.$slots.default.forEach(vNode => {
-          const tag = vNode.componentOptions.tag
+          const tag = vNode.componentOptions&&vNode.componentOptions.tag
           if (tag === 'terse-radio-button' || tag === 'terse-radio') {
             vNode.child.notAllowed = true
           }

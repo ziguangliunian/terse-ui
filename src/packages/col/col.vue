@@ -11,7 +11,7 @@
       span: {
         type: Number,
         validator(value) {
-          return (value.toString().length === 1) && (value >= 1 && value <= 24)
+          return (value >= 1 && value <= 24)
         },
         default: 24
       },
@@ -19,7 +19,7 @@
         type: Number,
         default: 0,
         validator(value) {
-          return (value.toString().length === 1) && (value >= 0 && value <= 24)
+          return (value >= 0 && value <= 24)
         },
       }
     },

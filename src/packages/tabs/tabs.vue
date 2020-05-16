@@ -147,8 +147,6 @@
 
             .icon-cross {
                 cursor: pointer;
-
-
             }
         }
 
@@ -168,6 +166,10 @@
             .line {
                 margin-top: 2px;
             }
+            .content{
+                margin-top: 5px;
+            }
+
         }
 
         &--horizontal {

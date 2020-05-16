@@ -46,9 +46,11 @@
     },
     data() {
       const timer = this.getValues(this.value)
+      const selectValue = timer
       return {
         visiable: false,
         timer,
+        selectValue,
         titles: ['日', '一', '二', '三', '四', '五', '六',]
       }
     },
@@ -83,14 +85,14 @@
         return year === y && month === m && day === d
       },
       isSelect(value) {
-        const {year, month, day} = this.timer
+        const {year, month, day} = this.selectValue
         const y = value.getFullYear()
         const m = value.getMonth() + 1
         const d = value.getDate()
         return year === y && month === m && day === d
       },
       chooseDate(value) {
-        this.timer = this.getValues(value)
+        this.selectValue = this.timer = this.getValues(value)
         this.$emit('input', this.selectedDate)
         this.$emit('change', this.selectedDate)
       },
@@ -107,7 +109,7 @@
     },
     computed: {
       selectedDate() {
-        const {year, month, day} = this.timer
+        const {year, month, day} = this.selectValue
         return year + '/' + month + '/' + day
       },
       getVisiableDate() {

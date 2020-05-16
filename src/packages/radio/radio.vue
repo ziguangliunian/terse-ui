@@ -78,7 +78,8 @@
         align-items: center;
         margin-right: 30px;
         -user-select: none;
-        vertical-align:top;
+        vertical-align: top;
+
         .terse-radio__inner {
             display: inline-block;
             box-sizing: border-box;

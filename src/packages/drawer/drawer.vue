@@ -64,29 +64,39 @@
     computed: {
       contentStyle() {
         const direction = this.direction
+        const size = this.size
+        const positionInfo = {
+          'left-info': {
+            left: 0,
+            top: 0
+          },
+          'right-info': {
+            top: 0,
+            right: 0
+          },
+          'top-info': {
+            top: 0,
+            right: 0
+          },
+          'bottom-info': {
+            bottom: 0,
+            right: 0
+          }
+        }
         let lengthInfo
         if (direction === 'right' || direction === 'left') {
-          lengthInfo = typeof this.size === 'number' ? {
-            "width": this.size + 'px'
+          lengthInfo = typeof size === 'number' ? {
+            "width": size + 'px'
           } : {'width': this.size}
         } else if (direction === 'top' || direction === 'bottom') {
-          lengthInfo = typeof this.size === 'number' ? {
-            "height": this.size + 'px',
+          lengthInfo = typeof size === 'number' ? {
+            "height": size + 'px',
             'width': "100%"
           } : {'height': this.size, 'width': '100%'}
         }
-        if (direction === 'right') {
-          return {...lengthInfo, top: 0, right: 0}
-        } else if (direction === 'left') {
-          return {...lengthInfo, left: 0, top: 0}
-        } else if (direction === 'top') {
-          return {...lengthInfo, top: 0, right: 0}
-        } else if (direction === 'bottom') {
-          return {...lengthInfo, bottom: 0, right: 0}
-        }
-
-
+        return Object.assign({}, lengthInfo, positionInfo[direction + '-info'])
       }
+
     },
     watch: {
       visiable(value) {

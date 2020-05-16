@@ -15,8 +15,11 @@
         default: '#000'
       },
       size: {
-        type: [Number, String],
-        default: 16
+        type: Number,
+        default: 16,
+        validator(value) {
+          return value >= 10
+        }
       }
     }
   }

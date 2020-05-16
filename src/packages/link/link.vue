@@ -45,13 +45,16 @@
 
     .terse-link {
         cursor: pointer;
-        text-decoration: none;
+        text-decoration: none !important;
         box-sizing: border-box;
 
         &:hover {
+            text-decoration: none !important;
             border-bottom: 1px solid @theme-color-primary;
         }
-
+        &:active{
+            text-decoration: none !important;
+        }
         &.is-disabled {
             color: #c0c4cc;
             cursor: not-allowed;
@@ -70,6 +73,9 @@
 
             &.is-disabled {
                 color: #a0cfff;
+                &:hover {
+                    border-bottom: 0;
+                }
             }
         }
 
@@ -82,6 +88,9 @@
 
             &.is-disabled {
                 color: #fab6b6;
+                &:hover {
+                    border-bottom: 0;
+                }
             }
         }
 
@@ -94,6 +103,9 @@
 
             &.is-disabled {
                 color: #b3e19d;
+                &:hover {
+                    border-bottom: 0;
+                }
             }
         }
 
@@ -106,6 +118,9 @@
 
             &.is-disabled {
                 color: #f3d19e;
+                &:hover {
+                    border-bottom: 0;
+                }
             }
         }
 
@@ -118,9 +133,11 @@
 
             &.is-disabled {
                 color: #c8c9cc;
+                &:hover {
+                    border-bottom: 0;
+                }
             }
         }
-
         &.no-underline {
             &:hover {
                 border-bottom: 0;
